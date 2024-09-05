@@ -4,56 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS | part 1</title>
+    <title>CSS | Part 1</title>
 
     <!-- CSS Internal -->
     <style>
-        /* Styling untuk elemen dengan ID */
+        /* Selektor ID untuk judul */
         #judul {
             font-size: 24px;
             color: darkblue;
             text-align: center;
+            margin-bottom: 20px;
         }
 
-        /* Styling untuk elemen dengan class */
+        /* Selektor class untuk paragraf */
         .paragraf {
             font-size: 16px;
+            color: skyblue;
             line-height: 1.6;
-            color: darkgreen;
+
         }
 
-        /* Styling untuk tautan */
-        a {
-            color: darkred;
-            text-decoration: none;
+        /* Combinator Selector - Descendant selector (p di dalam div) */
+        div p {
+            margin-left: 20px;
         }
 
-        /* Styling saat tautan di-hover */
-        a:hover {
-            color: darkorange;
+        /* Combinator Selector - Child selector (h2 langsung di dalam section) */
+        section>h2 {
+            color: skyblue;
+            font-size: 20px;
+
+        }
+
+        /* Combinator Selector - Adjacent sibling selector (p yang mengikuti h2 langsung) */
+        h2+p {
+            font-style: italic;
+        }
+
+        /* Attribute Selector - Menyeleksi semua anchor dengan atribut target="_blank" */
+        a[target="_blank"] {
+            color: darkblue;
+            font-weight: bold;
+
+        }
+
+        /* Attribute selector untuk input dengan type="text" */
+        input[type="text"] {
+            border: 2px solid blue;
+            padding: 10px;
+            font-size: 16px;
+
+        }
+
+        /* Attribute selector untuk input dengan type="password" */
+        input[type="password"] {
+            border: 2px solid red;
+            padding: 10px;
+            font-size: 16px;
+
+        }
+
+        /* Attribute selector untuk input dengan type="submit" */
+        input[type="submit"] {
+            background-color: darkblue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        /* Attribute selector untuk input yang memiliki atribut required */
+        input[required] {
+            background-color: #f0f0f0;
+            border: 2px solid skyblue;
+
         }
     </style>
 </head>
 
 <body>
 
-    <h1 id="judul">Welcome to Rasyafa Styling CSS</h1>
+    <!-- Elemen dengan ID -->
+    <h1 id="judul">Whispers of the Celestial Night</h1>
 
+    <!-- Elemen dengan class -->
     <p class="paragraf">
-        Ini contoh paragraf pertama, menggunakan class "paragraf" untuk memberikan gaya yang sama pada
-        beberapa elemen paragraf di halaman ini.
+        Dive into the luminous world of Whispers of the Celestial Night, an extraordinary collection of prose and poetry
+        that
+        masterfully blends the mystical with the tangible. This enchanting work invites readers to embark on a journey
+        through
+        the realms of imagination and introspection, where every page reveals a new facet of the human soul and the
+        universe it
+        inhabits.
     </p>
 
-    <p class="paragraf">
-        Paragraf kedua juga memiliki class "paragraf" yang sama, sehingga tampilannya konsisten.
-    </p>
+    <div>
+        <!-- Paragraf di dalam div menggunakan kombinasi descendant selector -->
+        <p class="paragraf">With an exquisite command of language, the author conjures a symphony of words that dance
+            between the ethereal and the
+            earthly. Each piece is a delicate exploration of dreams, desires, and the profound silence of the cosmos,
+            rendered with
+            an elegance that captivates and resonates. The imagery is both evocative and haunting, painting scenes of
+            celestial
+            beauty and introspective depth,<code>while the rhythmic flow of the prose and poetry creates an immersive experience that
+        transcends the ordinary.</code>.</p>
+    </div>
 
-    <a href="https://id.pinterest.com/rasyarasyifah/">Kunjungi Koleksi Pinterest aku yaa~</a>
+    <section>
+
+        <!-- h2 menggunakan child selector -->
+        <h2>Celestial Moon</h2>
+
+        <!-- Paragraf setelah h2 menggunakan adjacent sibling selector -->
+        <p class="paragraf">Celestial Moon is a literary masterpiece that captures the ethereal beauty and enigmatic
+            allure of the moonlit night.
+            This enchanting collection invites readers to delve into the depths of emotion and meaning inspired by the
+            soft, silvery
+            glow of the celestial moon. With a language that exudes grace and a narrative style that mesmerizes, each
+            page unfolds
+            stories that bridge the gap between the tangible and the intangible. <code>h2</code> From melancholic verses
+            to thought-provoking prose, Celestial Moon presents a captivating portrayal of love, loss, and wonder under
+            the eternal moonlight. Each word seems to be woven with lunar light, offering profound insights into the
+            beauty and sorrow that fill the night. This work is not merely a book but an experience that beckons readers
+            to reflect and immerse themselves in the serenity and majesty of the moonlit realm.
+
+            Celestial Moon is a tribute to the cosmic wonders and transformative power inspired by the moon’s glow. It
+            is a creation that leaves a lasting impression, celebrating the timeless beauty and mysterious depths of the
+            illuminated night.</p>
+    </section>
+
+    <!-- Tautan dengan attribute selector -->
+    <a href="https://id.pinterest.com/rasyarasyifah/" target="_blank"><em>Visit The Pinterest
+            Collection</em></a><br><br>
+
+    <form>
+        <!-- Input dengan attribute selector type="text" -->
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <!-- Input dengan attribute selector type="password" -->
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <!-- Input dengan attribute selector type="submit" -->
+        <input type="submit" value="Go">
+    </form>
 
 </body>
 
 </html>
 
-<!--ID digunakan untuk elemen unik, seperti elemen <h1> dengan ID #judul.-->
-<!--Class digunakan untuk memberikan gaya yang sama pada beberapa elemen, seperti <p> yang memiliki class .paragraf.-->
-<!--Tautan <a> diberikan styling untuk mengubah warna saat di-hover.-->
+<!-- Selektor ID untuk elemen yang unik, seperti elemen <h1> dengan ID #judul.
+    Selektor class untuk elemen-elemen dengan class .paragraf.
+    Combinator Selector:
+        Descendant selector (div p): 
+            Menyeleksi <p> yang berada di dalam <div>.
+        Child selector (section > h2): 
+            Menyeleksi <h2> yang merupakan anak langsung dari <section>.
+        Adjacent sibling selector (h2 + p): 
+            Menyeleksi <p> yang mengikuti <h2> langsung.
+    Attribute Selector:
+        [target="_blank"]: 
+            Menyeleksi <a> yang memiliki atribut target="_blank".
+        [type="text"]: 
+            Menyeleksi <input> dengan type="text". -->
