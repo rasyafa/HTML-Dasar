@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Galeri Foto Flexbox</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Styling untuk body */
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #999390;
+            text-align: center;
+        }
+
+        /* Container utama untuk galeri */
+        .gallery-container {
+            padding: 20px;
+        }
+
+        /* Styling untuk judul galeri */
+        h1 {
+            color: white;
+            font-style: italic;
+            text-align: right;
+            font-size: 28px;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h1::before {
+            content: '';
+            display: block;
+            width: 300px;
+            height: 2px;
+            background-color: black;
+            /* Warna garis */
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translateX(35%);
+            margin-right: 5px;
+            /* Jarak antara garis dan teks */
+        }
+
+        /* Styling flexbox untuk galeri */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: space-between;
+            /* Menyebar gambar secara merata */
+        }
+
+
+        /* Styling untuk setiap item dalam galeri */
+        .gallery-item {
+            flex-basis: calc(33.333% - 10px);
+            /* Lebar 1/3 dari container, dengan margin kecil di antara */
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        /*Untuk hover item*/
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            /* Pseudo-class selector hover */
+            opacity: 0.9;
+        }
+
+        /* Container untuk gambar */
+        .image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            /* Agar gambar yang melampaui container tidak terlihat */
+            border-radius: 10px;
+            border: 2px solid #ddd;
+        }
+
+        /* Gambar */
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            /* Menambahkan transisi yang halus */
+        }
+
+        /* Efek hover: zoom pada gambar */
+        .image-container:hover img {
+            transform: scale(1.2);
+            /* Memperbesar gambar saat hover */
+        }
+
+        /* Caption untuk setiap gambar */
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.6);
+            /* Latar belakang transparan */
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-size: 1rem;
+            opacity: 1;
+            /* Default opacity untuk terlihat */
+            visibility: visible;
+            /* Caption terlihat secara default */
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            /* Transisi halus */
+        }
+
+        /* Hover pada image-container membuat caption menghilang */
+        .image-container:hover .gallery-caption {
+            opacity: 0;
+            /* Menghilangkan caption */
+            visibility: hidden;
+            /* Sembunyikan caption */
+        }
+
+        /* Responsive untuk tampilan yang lebih kecil */
+        @media (max-width: 768px) {
+            .gallery-item {
+                flex-basis: calc(50% - 10px);
+                /* Lebar 1/2 untuk ukuran layar sedang */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                flex-basis: 100%;
+                /* Lebar penuh untuk ukuran layar kecil */
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="gallery-container">
+        <h1>Gallery Collection</h1>
+        <div class="gallery">
+            <!-- Item 1 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="autumn.jpg" alt="Product Image">
+                    <div class="gallery-caption">Stunning Autumn</div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="haloween.jpg" alt="Product Image">
+                    <div class="gallery-caption">Halloween</div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="goldenhour.jpg" alt="Product Image">
+                    <div class="gallery-caption">Golden Hour</div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="coffee.jpg" alt="Product Image">
+                    <div class="gallery-caption">Coffee Break</div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="fire&water.jpg" alt="Product Image">
+                    <div class="gallery-caption">Water and Fire</div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="desney.jpg" alt="Product Image">
+                    <div class="gallery-caption">Disney</div>
+                </div>
+            </div>
+
+            <!-- Item 7 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="lampion.jpg" alt="Product Image">
+                    <div class="gallery-caption">Lantern</div>
+                </div>
+            </div>
+
+            <!-- Item 8 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="snow.jpg" alt="Product Image">
+                    <div class="gallery-caption">Snowflake</div>
+                </div>
+            </div>
+
+            <!-- Item 9 -->
+            <div class="gallery-item">
+                <div class="image-container">
+                    <img src="library.jpg" alt="Product Image">
+                    <div class="gallery-caption">Classic Library</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
